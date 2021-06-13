@@ -12,6 +12,7 @@ namespace SiteLanches.Repositories
     public class LancheRepository : ILancheRepository
     {
         private readonly AppDbContext _context;
+
         public LancheRepository(AppDbContext contexto)
         {
             _context = contexto;
@@ -21,6 +22,6 @@ namespace SiteLanches.Repositories
 
         public IEnumerable<Lanche> LanchesPreferidos => _context.Lanches.Where(i => i.IsLanchePreferido).Include(i => i.Categoria);
 
-        public Lanche GerLancheById(int lancheId) => _context.Lanches.FirstOrDefault(i => i.LancheId == lancheId);
+        public Lanche GerLancheById(int lancheId) => _context.Lanches.Include(i => i.Categoria).FirstOrDefault(i => i.LancheId == lancheId);
     }
 }
