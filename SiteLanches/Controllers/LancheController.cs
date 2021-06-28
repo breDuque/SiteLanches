@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SiteLanches.Repositories;
 using SiteLanches.Repositories.RepositoriesInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SiteLanches.Controllers
 {

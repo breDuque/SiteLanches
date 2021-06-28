@@ -7,7 +7,7 @@ namespace SiteLanches.Repositories.RepositoriesInterfaces
     {
         IEnumerable<Lanche> Lanches { get; }
         IEnumerable<Lanche> LanchesPreferidos { get; }
-        Lanche GerLancheById(int lancheId);
 
+        Lanche GerLancheById(int lancheId);
     }
 }

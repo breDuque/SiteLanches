@@ -45,41 +45,42 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescricaoCurta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescricaoLonga)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.ImagemUrl)" />
-            </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.ImagemThumbnailUrl)"  />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsLanchePreferido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsEmEstoque)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.LancheId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.LancheId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.LancheId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescricaoCurta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescricaoLonga)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.ImagemUrl)" />
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.ImagemThumbnailUrl)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsLanchePreferido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEmEstoque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LancheId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.LancheId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LancheId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SiteLanches.Context;
 using SiteLanches.Models;
 using SiteLanches.Repositories.RepositoriesInterfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SiteLanches.Repositories
 {
