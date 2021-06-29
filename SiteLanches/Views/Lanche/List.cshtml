@@ -1,86 +1,20 @@
-﻿@model IEnumerable<SiteLanches.Models.Lanche>
+﻿@model IEnumerable<Lanche>
 
-@{
-    ViewData["Title"] = "List";
-}
-
-<h2>List</h2>
-<h2>@ViewBag.Lanche</h2>
-<h2>@ViewData["Categoria"]</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescricaoCurta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DescricaoLonga)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagemUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagemThumbnailUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsLanchePreferido)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsEmEstoque)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescricaoCurta)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DescricaoLonga)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Preco)
-                </td>
-                <td>
-                    <img src="@Html.DisplayFor(modelItem => item.ImagemUrl)" />
-                </td>
-                <td>
-                    <img src="@Html.DisplayFor(modelItem => item.ImagemThumbnailUrl)" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsLanchePreferido)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsEmEstoque)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.LancheId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.LancheId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.LancheId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h2>Todos os Lanches</h2>
+<div class="row">
+    @foreach (var lanche in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="img-fluid">
+                <img src="@lanche.ImagemUrl" style="height:200px;width:200px" class="img-rounded" alt="" />
+            </div>
+            <div class="caption">
+                <h3 class="formPullRightButton"> @lanche.Preco.ToString("c")</h3>
+                <h3>
+                    @lanche.Nome
+                </h3>
+                <p>@lanche.DescricaoCurta</p>
+            </div>
+        </div>
+    }
+</div>
