@@ -28,7 +28,7 @@ namespace SiteLanches.Models
             return new CarrinhoCompra(context) { CarrinhoCompraId = carrinhoId };
         }
 
-        public void AdicionarAoCarrinho(Lanche lanche, int quantidade)
+        public void AdicionarAoCarrinho(Lanche lanche)
         {
             var carrinhoCompraItem = GetCarrinhoCompraItem(lanche);
             if (carrinhoCompraItem == null)
@@ -43,7 +43,7 @@ namespace SiteLanches.Models
             _context.SaveChanges();
         }
 
-        public decimal GerCarrinhoCompraTotal()
+        public decimal GetCarrinhoCompraTotal()
         {
             var total = _context.CarrinhoCompraItems.Where(c => c.CarrinhoCompraId == CarrinhoCompraId).Select(c => c.Lanche.Preco * c.Quantidade).Sum();
             return total;
