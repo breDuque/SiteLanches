@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SiteLanches.Context;
+using SiteLanches.Models;
 using SiteLanches.Repositories;
 using SiteLanches.Repositories.RepositoriesInterfaces;
 
@@ -26,6 +28,8 @@ namespace SiteLanches
 
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<ILancheRepository, LancheRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(cp => CarrinhoCompra.GetCarrinho(cp));
             
             services.AddControllersWithViews();
         }
@@ -45,6 +49,7 @@ namespace SiteLanches
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
