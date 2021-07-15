@@ -1,0 +1,13 @@
+﻿@model CarrinhoCompraViewModel
+
+@if (Model.CarrinhoCompra.CarrinhoCompraItens.Count > 0)
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="CarrinhoCompra">
+            <i class="bi-cart4"></i>
+            <span id="cart-status">
+                @Model.CarrinhoCompra.CarrinhoCompraItens.Count
+            </span>
+        </a>
+    </li>
+}
