@@ -16,8 +16,8 @@ namespace SiteLanches.Components
 
         public IViewComponentResult Invoke()
         {
-            //var itens = _carrinhoCompra.GetCarrinhoCompraItems();
-            var itens = new List<CarrinhoCompraItem>() {new CarrinhoCompraItem(), new CarrinhoCompraItem()};
+            var itens = _carrinhoCompra.GetCarrinhoCompraItems();
+            //var itens = new List<CarrinhoCompraItem>() {new CarrinhoCompraItem(), new CarrinhoCompraItem()};
             _carrinhoCompra.CarrinhoCompraItens = itens;
             var carrinhoCompraVm = new CarrinhoCompraViewModel
             {

@@ -31,8 +31,8 @@ namespace SiteLanches
             services.AddTransient<ILancheRepository, LancheRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(cp => CarrinhoCompra.GetCarrinho(cp));
-            
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddSession();
         }
 
