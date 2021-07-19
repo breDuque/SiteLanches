@@ -22,7 +22,7 @@ namespace SiteLanches.Controllers
         public IActionResult List(string categoria)
         {
             IEnumerable<Lanche> lanches;
-            var categoriaAtual = string.Empty;
+            string categoriaAtual;
 
             if(string.IsNullOrEmpty(categoria))
             {
