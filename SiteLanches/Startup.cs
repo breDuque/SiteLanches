@@ -62,8 +62,14 @@ namespace SiteLanches
             {
                 endpoints.MapControllerRoute(
                     "filtrarPorCategoria",
-                    "Lanche/{acton}/{categoria?}",
+                    "Lanche/{action}/{categoria?}",
                     new {Controller="Lanche", Action="List"}
+                );
+                
+                endpoints.MapControllerRoute(
+                    "detalheLanche",
+                    "Lanche/{action}/{detail?}",
+                    new {Controller="Lanche", Action="Details"}
                 );
                 
                 endpoints.MapControllerRoute(
